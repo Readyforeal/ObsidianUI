@@ -1,6 +1,6 @@
 @props(['icon', 'heading'])
 
-<div {{ $attributes->merge(['class' => 'flex flex-col items-center gap-3 px-6 py-12 text-center']) }}>
+<div data-ob-reveal {{ $attributes->merge(['class' => 'flex flex-col items-center gap-3 px-6 py-12 text-center']) }}>
     <span class="flex size-12 items-center justify-center rounded-full bg-surface-3 text-fg-3">
         <x-ob::icon :name="$icon" class="size-6" />
     </span>

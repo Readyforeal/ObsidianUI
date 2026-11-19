@@ -57,11 +57,11 @@
     ];
 
     $paletteActions = [
-        ['label' => 'Go to tokens', 'href' => $page.'#tokens', 'icon' => 'swatch'],
-        ['label' => 'Go to forms', 'href' => $page.'#forms', 'icon' => 'pencil-square'],
-        ['label' => 'Go to data', 'href' => $page.'#data', 'icon' => 'table-cells'],
+        ['label' => 'Go to tokens', 'href' => $page.'#tokens', 'icon' => 'palette'],
+        ['label' => 'Go to forms', 'href' => $page.'#forms', 'icon' => 'square-pen'],
+        ['label' => 'Go to data', 'href' => $page.'#data', 'icon' => 'table'],
         ['label' => 'Show a toast', 'event' => 'showcase-toast', 'icon' => 'bell'],
-        ['label' => 'Open the demo modal', 'event' => 'showcase-modal', 'icon' => 'window', 'shortcut' => 'M'],
+        ['label' => 'Open the demo modal', 'event' => 'showcase-modal', 'icon' => 'app-window', 'shortcut' => 'M'],
     ];
 @endphp
 <!DOCTYPE html>
@@ -86,16 +86,16 @@
             </x-slot:brand>
 
             <x-ob::sidebar.group heading="Foundations">
-                <x-ob::sidebar.item :href="$page.'#tokens'" icon="swatch" label="Tokens" :active="true" />
-                <x-ob::sidebar.item :href="$page.'#type'" icon="language" label="Type" :active="false" />
+                <x-ob::sidebar.item :href="$page.'#tokens'" icon="palette" label="Tokens" :active="true" />
+                <x-ob::sidebar.item :href="$page.'#type'" icon="languages" label="Type" :active="false" />
             </x-ob::sidebar.group>
             <x-ob::sidebar.group heading="Components">
-                <x-ob::sidebar.item :href="$page.'#buttons'" icon="cursor-arrow-rays" label="Buttons" :active="false" />
-                <x-ob::sidebar.item :href="$page.'#forms'" icon="pencil-square" label="Forms" :active="false" />
-                <x-ob::sidebar.item :href="$page.'#overlays'" icon="square-2-stack" label="Overlays" :active="false" badge="3" />
-                <x-ob::sidebar.item :href="$page.'#layout'" icon="squares-2x2" label="Layout" :active="false" />
-                <x-ob::sidebar.item :href="$page.'#data'" icon="table-cells" label="Data" :active="false" badge="12" />
-                <x-ob::sidebar.item :href="$page.'#stress'" icon="bolt" label="Stress" :active="false" />
+                <x-ob::sidebar.item :href="$page.'#buttons'" icon="mouse-pointer-click" label="Buttons" :active="false" />
+                <x-ob::sidebar.item :href="$page.'#forms'" icon="square-pen" label="Forms" :active="false" />
+                <x-ob::sidebar.item :href="$page.'#overlays'" icon="copy" label="Overlays" :active="false" badge="3" />
+                <x-ob::sidebar.item :href="$page.'#layout'" icon="layout-grid" label="Layout" :active="false" />
+                <x-ob::sidebar.item :href="$page.'#data'" icon="table" label="Data" :active="false" badge="12" />
+                <x-ob::sidebar.item :href="$page.'#stress'" icon="zap" label="Stress" :active="false" />
             </x-ob::sidebar.group>
 
             <x-slot:footer>
@@ -111,7 +111,7 @@
         <div>
             <x-ob::page-header title="Obsidian" description="Every component in one place, in every mode and accent.">
                 <x-slot:actions>
-                    <x-ob::button variant="ghost" icon="magnifying-glass" x-on:click="$dispatch('command-palette-open')">Search <x-ob::kbd>⌘K</x-ob::kbd></x-ob::button>
+                    <x-ob::button variant="ghost" icon="search" x-on:click="$dispatch('command-palette-open')">Search <x-ob::kbd>⌘K</x-ob::kbd></x-ob::button>
                 </x-slot:actions>
             </x-ob::page-header>
 
@@ -126,7 +126,7 @@
                     label="Appearance"
                     x-model="appearance"
                     :options="[
-                        ['value' => 'system', 'label' => 'System', 'icon' => 'computer-desktop'],
+                        ['value' => 'system', 'label' => 'System', 'icon' => 'monitor'],
                         ['value' => 'light', 'label' => 'Light', 'icon' => 'sun'],
                         ['value' => 'dark', 'label' => 'Dark', 'icon' => 'moon'],
                     ]"
@@ -188,7 +188,7 @@
                     <x-ob::button variant="primary" icon="plus">New report</x-ob::button>
                     <x-ob::button>Secondary</x-ob::button>
                     <x-ob::button variant="ghost">Ghost</x-ob::button>
-                    <x-ob::button variant="danger" icon="trash">Delete</x-ob::button>
+                    <x-ob::button variant="danger" icon="trash-2">Delete</x-ob::button>
                     <x-ob::button disabled>Disabled</x-ob::button>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
@@ -196,8 +196,8 @@
                     <x-ob::button size="md">Medium</x-ob::button>
                     <x-ob::button size="lg" icon:trailing="arrow-right">Large</x-ob::button>
                     <x-ob::button :href="$page.'#buttons'" icon="link">Link button</x-ob::button>
-                    <x-ob::button variant="ghost" icon="cog-6-tooth" label="Settings" />
-                    <x-ob::button icon="ellipsis-horizontal" label="More actions" />
+                    <x-ob::button variant="ghost" icon="settings" label="Settings" />
+                    <x-ob::button icon="ellipsis" label="More actions" />
                     <x-ob::tooltip text="Copy the report link">
                         <x-ob::button size="sm" icon="clipboard">Copy</x-ob::button>
                     </x-ob::tooltip>
@@ -235,7 +235,7 @@
                     class="grid gap-5 sm:grid-cols-2"
                 >
                     <x-ob::input label="Title" placeholder="Short summary" x-model="title" hint="Sentence case, under 80 characters." />
-                    <x-ob::input label="Search" icon="magnifying-glass" clearable placeholder="Find a report" x-model="email" />
+                    <x-ob::input label="Search" icon="search" clearable placeholder="Find a report" x-model="email" />
                     <x-ob::input label="Budget" prefix="$" suffix="USD" placeholder="0.00" x-model="email" />
                     <x-ob::password label="Password" x-model="password" />
                     <x-ob::select label="Status" :options="$statuses" x-model="status" />
@@ -262,12 +262,12 @@
                         <x-ob::button icon:trailing="chevron-down">Actions</x-ob::button>
                     </x-slot:trigger>
                     <x-ob::menu.group label="Report">
-                        <x-ob::menu.item icon="pencil-square" shortcut="E">Edit</x-ob::menu.item>
-                        <x-ob::menu.item icon="document-duplicate">Duplicate</x-ob::menu.item>
+                        <x-ob::menu.item icon="square-pen" shortcut="E">Edit</x-ob::menu.item>
+                        <x-ob::menu.item icon="files">Duplicate</x-ob::menu.item>
                         <x-ob::menu.item icon="link" :href="$page.'#overlays'">Copy link</x-ob::menu.item>
                     </x-ob::menu.group>
                     <x-ob::menu.separator />
-                    <x-ob::menu.item icon="trash" variant="danger">Delete</x-ob::menu.item>
+                    <x-ob::menu.item icon="trash-2" variant="danger">Delete</x-ob::menu.item>
                 </x-ob::dropdown>
                 <x-ob::button x-on:click="$dispatch('modal-open', { name: 'demo-modal' })">Open modal</x-ob::button>
                 <x-ob::button x-on:click="$dispatch('modal-open', { name: 'demo-sheet' })">Open bottom sheet</x-ob::button>
@@ -275,15 +275,15 @@
                 <x-ob::button x-on:click="$dispatch('toast', { message: 'Report saved', variant: 'success' })">Success toast</x-ob::button>
                 <x-ob::button x-on:click="$dispatch('toast', { message: 'Could not reach the server', variant: 'danger', action: { label: 'Retry', href: '#overlays' } })">Danger toast</x-ob::button>
                 <x-ob::button x-on:click="$dispatch('toast', { message: 'Three reports were merged', variant: 'info' })">Info toast</x-ob::button>
-                <x-ob::button x-on:click="$dispatch('command-palette-open')" icon="command-line">Command palette</x-ob::button>
+                <x-ob::button x-on:click="$dispatch('command-palette-open')" icon="terminal">Command palette</x-ob::button>
             </x-ob::card>
         </x-ob::section>
 
         <x-ob::section id="layout" heading="Layout">
             <div class="grid gap-3 sm:grid-cols-3">
                 <x-ob::stat label="Open" value="42" icon="inbox" selected />
-                <x-ob::stat label="Needs triage" value="7" icon="exclamation-triangle" />
-                <x-ob::stat label="Resolved this week" value="1,318" icon="check-circle" />
+                <x-ob::stat label="Needs triage" value="7" icon="triangle-alert" />
+                <x-ob::stat label="Resolved this week" value="1,318" icon="circle-check" />
             </div>
             <div class="grid gap-3 sm:grid-cols-2">
                 <x-ob::card>
@@ -325,7 +325,7 @@
                 <x-ob::property label="Status" icon="signal">
                     <x-ob::inline-edit action="updateStatus" name="status" type="select" :options="$statuses" value="triaged" label="status" />
                 </x-ob::property>
-                <x-ob::property label="Title" icon="bars-3-bottom-left">
+                <x-ob::property label="Title" icon="align-left">
                     <x-ob::inline-edit action="updateTitle" name="title" value="Plan PDF download times out" label="title" />
                 </x-ob::property>
                 <x-ob::property label="Assignee" icon="user">
@@ -356,7 +356,7 @@
 
         <x-ob::section id="command" heading="Command palette" description="⌘K or Ctrl+K anywhere, or / when focus is not in a field.">
             <x-ob::card class="flex flex-wrap items-center gap-3">
-                <x-ob::button icon="command-line" x-on:click="$dispatch('command-palette-open')">Open palette</x-ob::button>
+                <x-ob::button icon="terminal" x-on:click="$dispatch('command-palette-open')">Open palette</x-ob::button>
                 <span class="text-sm text-fg-2">Type to fuzzy-match actions; any query also shows sample record results.</span>
             </x-ob::card>
         </x-ob::section>
@@ -407,11 +407,11 @@
 
     <x-slot:dock>
         <x-ob::dock>
-            <x-ob::dock.item :href="$page.'#tokens'" icon="swatch" label="Tokens" :active="true" />
-            <x-ob::dock.item :href="$page.'#forms'" icon="pencil-square" label="Forms" :active="false" />
+            <x-ob::dock.item :href="$page.'#tokens'" icon="palette" label="Tokens" :active="true" />
+            <x-ob::dock.item :href="$page.'#forms'" icon="square-pen" label="Forms" :active="false" />
             <x-ob::dock.action icon="plus" label="Open bottom sheet" x-on:click="$dispatch('modal-open', { name: 'demo-sheet' })" />
-            <x-ob::dock.item :href="$page.'#data'" icon="table-cells" label="Data" :active="false" />
-            <x-ob::dock.item :href="$page.'#stress'" icon="bolt" label="Stress" :active="false" />
+            <x-ob::dock.item :href="$page.'#data'" icon="table" label="Data" :active="false" />
+            <x-ob::dock.item :href="$page.'#stress'" icon="zap" label="Stress" :active="false" />
         </x-ob::dock>
     </x-slot:dock>
 </x-ob::app-shell>
@@ -437,13 +437,13 @@
 <x-ob::sheet name="demo-sheet" title="Quick actions">
     <div class="space-y-1">
         <button type="button" class="flex h-11 w-full items-center gap-3 rounded-lg px-2.5 text-left text-sm text-fg hover:bg-surface-3 focus-ring" x-on:click="$dispatch('modal-close', { name: 'demo-sheet' }); $dispatch('toast', { message: 'Report created', variant: 'success' })">
-            <x-ob::icon name="bug-ant" variant="mini" class="size-4 text-fg-3" /> New report
+            <x-ob::icon name="bug" class="size-4 text-fg-3" /> New report
         </button>
         <button type="button" class="flex h-11 w-full items-center gap-3 rounded-lg px-2.5 text-left text-sm text-fg hover:bg-surface-3 focus-ring" x-on:click="$dispatch('modal-close', { name: 'demo-sheet' }); $dispatch('toast', { message: 'Task created', variant: 'success' })">
-            <x-ob::icon name="check-circle" variant="mini" class="size-4 text-fg-3" /> New task
+            <x-ob::icon name="circle-check" class="size-4 text-fg-3" /> New task
         </button>
         <button type="button" class="flex h-11 w-full items-center gap-3 rounded-lg px-2.5 text-left text-sm text-fg hover:bg-surface-3 focus-ring" x-on:click="$dispatch('modal-close', { name: 'demo-sheet' }); $dispatch('command-palette-open')">
-            <x-ob::icon name="magnifying-glass" variant="mini" class="size-4 text-fg-3" /> Search
+            <x-ob::icon name="search" class="size-4 text-fg-3" /> Search
         </button>
         <p class="pt-2 text-xs text-fg-3">Drag the handle down past 30% or flick to dismiss.</p>
     </div>
@@ -459,7 +459,7 @@
 <x-ob::command-palette :actions="$paletteActions">
     <x-ob::command-palette.group heading="Reports">
         @foreach (array_slice($reports, 0, 3) as $report)
-            <x-ob::command-palette.item :href="$page.'#data'" icon="bug-ant" :meta="$report['id']">{{ $report['title'] }}</x-ob::command-palette.item>
+            <x-ob::command-palette.item :href="$page.'#data'" icon="bug" :meta="$report['id']">{{ $report['title'] }}</x-ob::command-palette.item>
         @endforeach
     </x-ob::command-palette.group>
 </x-ob::command-palette>

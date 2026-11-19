@@ -4,7 +4,8 @@
     Overlay constraint: modals and sheets are not teleported, so nothing between this shell and page
     content (including `main`) may use transform, filter or backdrop-filter, or position:fixed overlays
     inside page content would anchor to that ancestor instead of the viewport. The sticky glass page-header
-    bar is fine because it is a sibling of content, never an ancestor of a modal.
+    bar is fine because it is a sibling of content, never an ancestor of a modal. `main` therefore only
+    fades in (data-ob-fade); the rise in data-ob-reveal belongs on leaf components.
 --}}
 <div
     x-data="{ collapsed: $persist(false).as('ob-sidebar-collapsed') }"
@@ -14,7 +15,7 @@
         <div class="sticky top-0 z-20 hidden h-dvh lg:block">{{ $sidebar }}</div>
     @endisset
 
-    <main class="min-w-0 pb-[calc(6rem+env(safe-area-inset-bottom))] lg:pb-0">
+    <main data-ob-fade class="min-w-0 pb-[calc(6rem+env(safe-area-inset-bottom))] lg:pb-0">
         {{ $slot }}
     </main>
 

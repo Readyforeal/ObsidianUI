@@ -2,7 +2,7 @@
 
 namespace Obsidian\Tests;
 
-use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
+use MallardDuck\LucideIcons\BladeLucideIconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Livewire\Blaze\BlazeServiceProvider;
 use Livewire\LivewireServiceProvider;
@@ -15,7 +15,7 @@ abstract class TestCase extends OrchestraTestCase
     {
         return [
             BladeIconsServiceProvider::class,
-            BladeHeroiconsServiceProvider::class,
+            BladeLucideIconsServiceProvider::class,
             LivewireServiceProvider::class,
             BlazeServiceProvider::class,
             ObsidianServiceProvider::class,

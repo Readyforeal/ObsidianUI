@@ -1,6 +1,6 @@
 @blaze
 
-<div {{ $attributes->merge(['class' => 'rounded-xl border border-hairline bg-surface-1 overflow-clip']) }}>
+<div data-ob-reveal {{ $attributes->merge(['class' => 'rounded-xl border border-hairline bg-surface-1 overflow-clip']) }}>
     {{-- overflow-clip, not hidden/auto: those make scroll containers and pin the sticky thead to this wrapper instead of the page. --}}
     <div class="overflow-clip">
         <table class="w-full table-fixed text-sm max-sm:block">

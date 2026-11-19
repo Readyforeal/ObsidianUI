@@ -1,6 +1,6 @@
 <?php
 
-it('renders an outline heroicon by default with the default size', function () {
+it('renders a lucide icon with the default size', function () {
     $html = (string) $this->blade('<x-ob::icon name="inbox" />');
 
     expect($html)->toContain('<svg')->toContain('size-5 shrink-0');
@@ -30,7 +30,7 @@ it('forwards other attributes to the svg', function () {
     expect($html)->toContain('data-test="x"');
 });
 
-it('renders the solid variant', function () {
-    expect(trim((string) $this->blade('<x-ob::icon name="inbox" variant="solid" />')))
-        ->toBe(trim((string) $this->blade('@svg("heroicon-s-inbox", "size-5 shrink-0")')));
+it('renders the lucide outline icon of that name', function () {
+    expect(trim((string) $this->blade('<x-ob::icon name="inbox" />')))
+        ->toBe(trim((string) $this->blade('@svg("lucide-inbox", "size-5 shrink-0", ["aria-hidden" => "true"])')));
 });

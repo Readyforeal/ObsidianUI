@@ -35,7 +35,7 @@
             <input type="radio" x-model="value" name="{{ $name }}" value="{{ $option['value'] }}" class="peer sr-only">
             <span class="inline-flex items-center gap-1.5 rounded-full text-fg-2 transition duration-120 ease-ob peer-checked:text-fg peer-focus-visible:shadow-[0_0_0_1px_var(--color-accent),0_0_0_5px_var(--color-accent-soft)]">
                 @if (! empty($option['icon']))
-                    <x-ob::icon :name="$option['icon']" variant="mini" class="size-4" />
+                    <x-ob::icon :name="$option['icon']" class="size-4" />
                 @endif
                 {{ $option['label'] }}
             </span>

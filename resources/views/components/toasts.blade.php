@@ -15,10 +15,10 @@
             data-ob-motion
             class="glass pointer-events-auto flex w-full max-w-sm items-center gap-3 rounded-xl py-2.5 pl-4 pr-2 text-sm text-fg transition duration-200 ease-ob starting:translate-y-2 starting:opacity-0"
         >
-            <span x-show="toast.variant === 'success'" class="shrink-0 text-success-fg"><x-ob::icon name="check-circle" variant="mini" class="size-5" /></span>
-            <span x-show="toast.variant === 'danger'" class="shrink-0 text-danger-fg"><x-ob::icon name="exclamation-circle" variant="mini" class="size-5" /></span>
-            <span x-show="toast.variant === 'warning'" class="shrink-0 text-warning-fg"><x-ob::icon name="exclamation-triangle" variant="mini" class="size-5" /></span>
-            <span x-show="toast.variant === 'info'" class="shrink-0 text-info-fg"><x-ob::icon name="information-circle" variant="mini" class="size-5" /></span>
+            <span x-show="toast.variant === 'success'" class="shrink-0 text-success-fg"><x-ob::icon name="circle-check" class="size-5" /></span>
+            <span x-show="toast.variant === 'danger'" class="shrink-0 text-danger-fg"><x-ob::icon name="circle-alert" class="size-5" /></span>
+            <span x-show="toast.variant === 'warning'" class="shrink-0 text-warning-fg"><x-ob::icon name="triangle-alert" class="size-5" /></span>
+            <span x-show="toast.variant === 'info'" class="shrink-0 text-info-fg"><x-ob::icon name="info" class="size-5" /></span>
             <p class="min-w-0 flex-1 wrap-break-word" x-text="toast.message"></p>
             <a
                 x-show="toast.action"
@@ -31,7 +31,7 @@
                 x-on:click="dismiss(toast.id)"
                 aria-label="Dismiss notification"
                 class="grid size-8 shrink-0 place-items-center rounded-full text-fg-3 transition duration-120 ease-ob hover:bg-surface-3 hover:text-fg focus-ring max-sm:size-11"
-            ><x-ob::icon name="x-mark" variant="mini" class="size-4" /></button>
+            ><x-ob::icon name="x" class="size-4" /></button>
         </div>
     </template>
 </div>

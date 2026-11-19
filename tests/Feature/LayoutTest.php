@@ -5,13 +5,13 @@ use Illuminate\Support\Facades\Route;
 
 beforeEach(function () {
     Route::get('/reports', fn () => Blade::render(
-        '<x-ob::sidebar.item href="/reports" icon="inbox" label="Reports" /><x-ob::sidebar.item href="/tasks" icon="check-circle" label="Tasks" />'
+        '<x-ob::sidebar.item href="/reports" icon="inbox" label="Reports" /><x-ob::sidebar.item href="/tasks" icon="circle-check" label="Tasks" />'
     ));
     Route::get('/reports/{id}', fn () => Blade::render(
-        '<x-ob::sidebar.item href="/reports" icon="inbox" label="Reports" /><x-ob::dock.item href="/tasks" icon="check-circle" label="Tasks" />'
+        '<x-ob::sidebar.item href="/reports" icon="inbox" label="Reports" /><x-ob::dock.item href="/tasks" icon="circle-check" label="Tasks" />'
     ));
     Route::get('/dock', fn () => Blade::render(
-        '<x-ob::dock.item href="/dock" icon="inbox" label="Home" /><x-ob::dock.item href="/tasks" icon="check-circle" label="Tasks" />'
+        '<x-ob::dock.item href="/dock" icon="inbox" label="Home" /><x-ob::dock.item href="/tasks" icon="circle-check" label="Tasks" />'
     ));
 });
 
@@ -102,4 +102,43 @@ it('renders card, section and empty-state', function () {
         ->assertSee('Recent')->assertSee('Latest')->assertSee('Body');
     $this->blade('<x-ob::empty-state icon="inbox" heading="Nothing here">Add one.<x-slot:action>Go</x-slot:action></x-ob::empty-state>')
         ->assertSee('Nothing here')->assertSee('Add one.')->assertSee('Go');
+});
+
+it('puts a back link above the page title when given one', function () {
+    $this->blade('<x-ob::page-header title="Report 12" back="/reports" back-label="Reports" />')
+        ->assertSeeInOrder(['href="/reports"', 'Reports', 'Report 12'], false)
+        ->assertSee('wire:navigate', false);
+});
+
+it('renders no back link on a top-level page', function () {
+    $this->blade('<x-ob::page-header title="Reports" />')->assertDontSee('<a', false);
+});
+
+it('renders a standalone back link that keeps caller attributes', function () {
+    $this->blade('<x-ob::back-link href="/tasks" x-on:click="prepare()">Tasks</x-ob::back-link>')
+        ->assertSee('href="/tasks"', false)
+        ->assertSee('x-on:click="prepare()"', false)
+        ->assertSee('Tasks');
+});
+
+it('renders an optional status area between the sidebar nav and footer', function () {
+    $this->blade('<x-ob::sidebar>Nav<x-slot:status>v1.2</x-slot:status><x-slot:footer>Foot</x-slot:footer></x-ob::sidebar>')
+        ->assertSeeInOrder(['Nav', 'v1.2', 'Foot']);
+});
+
+it('marks content blocks for the entrance animation', function (string $blade) {
+    $this->blade($blade)->assertSee('data-ob-reveal', false);
+})->with([
+    'card' => '<x-ob::card>Body</x-ob::card>',
+    'stat' => '<x-ob::stat label="Open" value="3" />',
+    'section' => '<x-ob::section heading="Team">Body</x-ob::section>',
+    'empty state' => '<x-ob::empty-state icon="inbox" heading="Nothing yet" />',
+    'table' => '<x-ob::table>Rows</x-ob::table>',
+    'page header' => '<x-ob::page-header title="Reports" />',
+]);
+
+it('only fades the main content area so fixed overlays inside it stay anchored to the viewport', function () {
+    $html = (string) $this->blade('<x-ob::app-shell>Body</x-ob::app-shell>');
+
+    expect($html)->toContain('<main data-ob-fade')->not->toContain('<main data-ob-reveal');
 });

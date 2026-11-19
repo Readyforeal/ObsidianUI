@@ -16,7 +16,7 @@
                 type="checkbox"
                 {{ $attributes->except(['class', 'label', 'hint'])->merge(['id' => $id, 'aria-describedby' => $describedBy, 'aria-invalid' => $hasError ? 'true' : null, 'class' => 'peer size-4 cursor-pointer appearance-none rounded-[5px] border border-fg-3 bg-surface-1 transition duration-120 ease-ob checked:border-accent checked:bg-accent focus-ring in-data-invalid:border-danger disabled:opacity-50']) }}
             >
-            <x-ob::icon name="check" variant="micro" class="pointer-events-none absolute inset-0 m-auto size-3 text-on-accent opacity-0 peer-checked:opacity-100" />
+            <x-ob::icon name="check" class="pointer-events-none absolute inset-0 m-auto size-3 text-on-accent opacity-0 peer-checked:opacity-100" />
         </span>
         @if ($label)
             <span>{{ $label }}</span>

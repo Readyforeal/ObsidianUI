@@ -73,11 +73,11 @@
         <x-ob::spinner class="hidden in-data-loading:inline-flex" />
     @endif
     @if ($icon)
-        <x-ob::icon :name="$icon" variant="mini" :class="$leadingIconClasses" />
+        <x-ob::icon :name="$icon" :class="$leadingIconClasses" />
     @endif
     {{ $slot }}
     @if ($trailingIcon)
-        <x-ob::icon :name="$trailingIcon" variant="mini" :class="$iconSize" />
+        <x-ob::icon :name="$trailingIcon" :class="$iconSize" />
     @endif
 @if ($href !== null)
     </a>

@@ -1,6 +1,6 @@
 @props(['heading', 'description' => null])
 
-<section {{ $attributes->merge(['class' => 'space-y-3']) }}>
+<section data-ob-reveal {{ $attributes->merge(['class' => 'space-y-3']) }}>
     <div class="flex items-end justify-between gap-3">
         <div class="min-w-0">
             <h2 class="text-base font-semibold tracking-[-0.01em]">{{ $heading }}</h2>

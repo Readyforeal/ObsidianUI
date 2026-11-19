@@ -22,6 +22,6 @@
             @endforeach
             {{ $slot }}
         </select>
-        <x-ob::icon name="chevron-down" variant="mini" class="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-fg-3" />
+        <x-ob::icon name="chevron-down" class="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-fg-3" />
     </div>
 </x-ob::field>

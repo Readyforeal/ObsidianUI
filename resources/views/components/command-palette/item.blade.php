@@ -12,7 +12,7 @@
     {{ $attributes->merge(['class' => 'flex min-h-9 items-center gap-2.5 rounded-lg px-2.5 text-sm text-fg aria-selected:bg-surface-3 max-sm:min-h-11']) }}
 >
     @if ($icon)
-        <x-ob::icon :name="$icon" variant="mini" class="size-4 shrink-0 text-fg-3" />
+        <x-ob::icon :name="$icon" class="size-4 shrink-0 text-fg-3" />
     @endif
     <span data-ob-label class="min-w-0 flex-1 truncate">{{ $slot }}</span>
     @if ($meta)

@@ -83,16 +83,16 @@ A minimal authenticated layout:
         <x-slot:sidebar>
             <x-ob::sidebar>
                 <x-slot:brand>My app</x-slot:brand>
-                <x-ob::sidebar.item href="{{ route('reports.index') }}" icon="inbox-stack" label="Reports" />
-                <x-ob::sidebar.item href="{{ route('tasks.index') }}" icon="check-circle" label="Tasks" />
+                <x-ob::sidebar.item href="{{ route('reports.index') }}" icon="inbox" label="Reports" />
+                <x-ob::sidebar.item href="{{ route('tasks.index') }}" icon="circle-check" label="Tasks" />
             </x-ob::sidebar>
         </x-slot:sidebar>
 
         <x-slot:dock>
             <x-ob::dock>
-                <x-ob::dock.item href="{{ route('reports.index') }}" icon="inbox-stack" label="Reports" />
+                <x-ob::dock.item href="{{ route('reports.index') }}" icon="inbox" label="Reports" />
                 <x-ob::dock.action icon="plus" label="New task" x-on:click="$dispatch('command-palette-open')" />
-                <x-ob::dock.item href="{{ route('tasks.index') }}" icon="check-circle" label="Tasks" />
+                <x-ob::dock.item href="{{ route('tasks.index') }}" icon="circle-check" label="Tasks" />
             </x-ob::dock>
         </x-slot:dock>
 
@@ -139,7 +139,7 @@ Toast variants are `success`, `danger`, `warning`, `info` and `neutral`.
 |---|---|
 | Primitives | `icon`, `button`, `badge`, `avatar`, `avatar.stack`, `kbd`, `spinner`, `separator`, `tooltip` |
 | Forms | `field`, `input`, `password`, `textarea`, `select`, `checkbox`, `switch`, `radio-group`, `segmented`, `combobox` |
-| Layout | `app-shell`, `sidebar` (+ `.item`, `.group`), `dock` (+ `.item`, `.action`), `page-header`, `card`, `section`, `empty-state`, `stat` |
+| Layout | `app-shell`, `sidebar` (+ `.item`, `.group`), `dock` (+ `.item`, `.action`), `page-header`, `back-link`, `card`, `section`, `empty-state`, `stat` |
 | Data | `table` (+ `.head`, `.row`, `.cell`), `property`, `inline-edit`, `kanban` (+ `.column`, `.card`) |
 | Overlays | `dropdown` + `menu.item` / `menu.separator` / `menu.group`, `modal`, `sheet`, `toasts`, `command-palette` (+ `.group`, `.item`) |
 
@@ -147,8 +147,12 @@ Each component's props are declared in its `@props` block in `resources/views/co
 
 Conventions shared by all components:
 
+- Icons are [Lucide](https://lucide.dev/icons): `<x-ob::icon name="search" />`. There is one outline style and no `variant`.
+- Detail pages put the way back above the title: `<x-ob::page-header title="…" :back="route('reports.index')" back-label="Reports" />`, or `<x-ob::back-link :href="…">Reports</x-ob::back-link>` when the page builds its own heading.
+- `card`, `stat`, `section`, `table`, `empty-state` and the page header fade in with a short rise (`data-ob-reveal`), staggered between siblings and replayed when scrolled into view. Add the attribute to your own blocks for the same entrance, or `data-ob-fade` for a plain fade. Both are disabled under reduced motion.
+
 - `wire:model*` and `x-model` go to the real form control. Field controls show the `$errors` message for their `wire:model` name (or `name`) automatically.
-- `variant` is `primary` | `secondary` | `ghost` | `danger` and `size` is `sm` | `md` | `lg`. Icon names are Heroicons names (`inbox-stack`).
+- `variant` is `primary` | `secondary` | `ghost` | `danger` and `size` is `sm` | `md` | `lg`. Icon names are [Lucide](https://lucide.dev/icons) names (`inbox`, `circle-check`); every icon is the outline style.
 - Icon-only buttons require a `label`, which becomes the `aria-label` and the tooltip.
 - `wire:model.live` on a `modal` or `sheet` syncs the open state to the server immediately, so `updated…` hooks run when a user closes it. Use it when closing must clear sensitive state.
 - `inline-edit` calls a Livewire method with the new value and sends `null` for a cleared field. Make the method's parameter nullable and validate it.

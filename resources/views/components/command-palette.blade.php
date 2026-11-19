@@ -5,7 +5,7 @@
 
     $iconNames = collect($actions)->pluck('icon')->filter()->push('clock')->unique();
     $icons = $iconNames->mapWithKeys(fn (string $name): array => [
-        $name => Blade::render('<x-ob::icon :name="$name" variant="mini" class="size-4 shrink-0 text-fg-3" />', ['name' => $name]),
+        $name => Blade::render('<x-ob::icon :name="$name" class="size-4 shrink-0 text-fg-3" />', ['name' => $name]),
     ]);
     $rowClasses = 'flex min-h-9 w-full items-center gap-2.5 rounded-lg px-2.5 text-left text-sm text-fg aria-selected:bg-surface-3 max-sm:min-h-11';
 @endphp
@@ -53,7 +53,7 @@
             class="glass relative flex w-full flex-col max-sm:pt-[env(safe-area-inset-top)] sm:max-h-[70vh] sm:max-w-xl sm:rounded-xl"
         >
             <div class="flex items-center gap-2 border-b border-hairline px-3">
-                <x-ob::icon name="magnifying-glass" variant="mini" class="size-4 shrink-0 text-fg-3" />
+                <x-ob::icon name="search" class="size-4 shrink-0 text-fg-3" />
                 <input
                     x-ref="input"
                     type="text"
@@ -74,7 +74,7 @@
                     x-on:click="close()"
                     aria-label="Close"
                     class="grid size-11 shrink-0 place-items-center rounded-full text-fg-3 hover:text-fg focus-ring sm:hidden"
-                ><x-ob::icon name="x-mark" variant="mini" class="size-4" /></button>
+                ><x-ob::icon name="x" class="size-4" /></button>
             </div>
 
             <div

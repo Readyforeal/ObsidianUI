@@ -69,7 +69,7 @@
                         x-on:click="close()"
                         aria-label="Close"
                         class="grid size-8 shrink-0 place-items-center rounded-full text-fg-3 transition duration-120 ease-ob hover:bg-surface-3 hover:text-fg focus-ring max-sm:size-11"
-                    ><x-ob::icon name="x-mark" variant="mini" class="size-4" /></button>
+                    ><x-ob::icon name="x" class="size-4" /></button>
                 </div>
             @endif
 

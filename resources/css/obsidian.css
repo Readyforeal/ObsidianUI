@@ -214,6 +214,48 @@
     }
 }
 
+/*
+    Entrance motion. `data-ob-reveal` fades an element in with a short rise; siblings stagger.
+    `data-ob-fade` only fades, for wrappers that may contain a fixed overlay (see app-shell).
+    Both keyframes have no end state, so nothing is left transformed once the animation finishes.
+*/
+@keyframes ob-rise {
+    from {
+        opacity: 0;
+        translate: 0 8px;
+    }
+}
+
+@keyframes ob-fade {
+    from {
+        opacity: 0;
+    }
+}
+
+@layer base {
+    [data-ob-reveal] {
+        animation: ob-rise var(--ob-dur-slow) var(--ease-ob) backwards;
+        animation-delay: calc(var(--ob-order, 0) * 45ms);
+    }
+
+    [data-ob-reveal]:nth-child(2) { --ob-order: 1; }
+    [data-ob-reveal]:nth-child(3) { --ob-order: 2; }
+    [data-ob-reveal]:nth-child(4) { --ob-order: 3; }
+    [data-ob-reveal]:nth-child(5) { --ob-order: 4; }
+    [data-ob-reveal]:nth-child(n + 6) { --ob-order: 5; }
+
+    [data-ob-fade] {
+        animation: ob-fade var(--ob-dur-base) ease-out backwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [data-ob-reveal],
+        [data-ob-fade] {
+            animation: none;
+        }
+    }
+}
+
 @layer base {
     html {
         color-scheme: light;

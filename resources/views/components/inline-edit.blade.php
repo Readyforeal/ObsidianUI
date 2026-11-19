@@ -59,7 +59,7 @@
 
         <x-ob::spinner x-show="saving" x-cloak class="size-4 text-fg-3" />
         <span x-show="saved" x-cloak x-transition.opacity.duration.200ms class="text-success-fg">
-            <x-ob::icon name="check" variant="mini" class="size-4" />
+            <x-ob::icon name="check" class="size-4" />
         </span>
     </div>
 

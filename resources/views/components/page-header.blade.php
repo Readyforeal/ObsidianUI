@@ -1,4 +1,4 @@
-@props(['title', 'description' => null])
+@props(['title', 'description' => null, 'back' => null, 'backLabel' => 'Back'])
 
 {{-- display:contents keeps the sticky compact bar a direct layout child of the page wrapper. --}}
 <div x-data="{ compact: false }" class="contents">
@@ -13,7 +13,12 @@
         <span class="truncate text-base font-semibold" x-text="@js($title)"></span>
     </div>
 
+    @if ($back)
+        <x-ob::back-link :href="$back">{{ $backLabel }}</x-ob::back-link>
+    @endif
+
     <div
+        data-ob-reveal
         x-intersect:leave="compact = $el.getBoundingClientRect().top < 0"
         x-intersect:enter="compact = false"
         {{ $attributes->merge(['class' => 'flex flex-wrap items-end justify-between gap-3 pb-6']) }}

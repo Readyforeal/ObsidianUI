@@ -24,7 +24,7 @@
     <button {{ $rootAttributes }}>
 @endif
     @if ($icon)
-        <x-ob::icon :name="$icon" variant="mini" class="size-4 shrink-0 {{ $variant === 'danger' ? '' : 'text-fg-3' }}" />
+        <x-ob::icon :name="$icon" class="size-4 shrink-0 {{ $variant === 'danger' ? '' : 'text-fg-3' }}" />
     @endif
     <span class="flex-1 truncate">{{ $slot }}</span>
     @if ($shortcut)

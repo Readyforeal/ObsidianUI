@@ -64,7 +64,7 @@
                             x-on:click="remove(option)"
                             :aria-label="'Remove ' + option.label"
                             class="relative -mr-1 grid size-4 place-items-center rounded-full text-fg-3 hover:text-fg focus-ring max-sm:before:absolute max-sm:before:-inset-3 max-sm:before:content-['']"
-                        ><x-ob::icon name="x-mark" variant="micro" class="size-3" /></button>
+                        ><x-ob::icon name="x" class="size-3" /></button>
                     </x-ob::badge>
                 </template>
             @endif
@@ -88,7 +88,7 @@
                 x-text="placeholderText ?? @js($placeholder)"
             ></button>
 
-            <x-ob::icon name="chevron-up-down" variant="mini" class="pointer-events-none ml-auto size-4 shrink-0 text-fg-3" />
+            <x-ob::icon name="chevrons-up-down" class="pointer-events-none ml-auto size-4 shrink-0 text-fg-3" />
         </div>
 
         {{-- One panel and one copy of the list: an anchored popover at sm and up, a bottom sheet below. --}}
@@ -159,7 +159,7 @@
                                 <span class="block truncate" x-text="option.label"></span>
                                 <span x-show="option.description" class="block truncate text-xs text-fg-3" x-text="option.description"></span>
                             </span>
-                            <x-ob::icon x-show="isSelected(option)" name="check" variant="mini" class="size-4 shrink-0 text-accent-fg" />
+                            <x-ob::icon x-show="isSelected(option)" name="check" class="size-4 shrink-0 text-accent-fg" />
                         </li>
                     </template>
                     <li x-show="results.length === 0" role="presentation" class="px-2.5 py-3 text-sm text-fg-3">No results</li>
