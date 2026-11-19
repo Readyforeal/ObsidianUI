@@ -14,8 +14,8 @@
         </div>
     </div>
 
-    {{-- A flex column so items sit flush and hover moves cleanly from one to the next. --}}
-    <nav aria-label="Primary" class="flex flex-1 flex-col px-2 py-2">
+    {{-- 2px between rows: close enough to feel continuous, apart enough that a hovered row never merges with the selected one. --}}
+    <nav aria-label="Primary" class="flex flex-1 flex-col gap-0.5 px-2 py-2">
         {{ $slot }}
     </nav>
 
