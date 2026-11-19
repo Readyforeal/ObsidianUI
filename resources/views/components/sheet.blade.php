@@ -11,8 +11,8 @@
     $openState = is_string($modelProperty) && $modelProperty !== '' ? "\$wire.\$entangle('".e(addslashes($modelProperty))."'".($model->hasModifier('live') ? ', true' : '').')' : 'false';
 
     $panelClasses = $isBottom
-        ? 'inset-x-0 bottom-0 max-h-[90dvh] rounded-t-[20px]'
-        : 'inset-y-0 right-0 w-full max-w-sm rounded-l-[20px]';
+        ? 'inset-x-0 bottom-0 max-h-[90dvh] rounded-t-panel'
+        : 'inset-y-0 right-0 w-full max-w-sm rounded-l-panel';
     $hiddenTransform = $isBottom ? 'translate-y-full' : 'translate-x-full';
     $shownTransform = $isBottom ? 'translate-y-0' : 'translate-x-0';
 @endphp

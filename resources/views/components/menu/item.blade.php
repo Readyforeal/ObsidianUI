@@ -2,7 +2,7 @@
 @props(['icon' => null, 'href' => null, 'navigate' => false, 'variant' => null, 'shortcut' => null])
 
 @php
-    $classes = 'flex w-full items-center gap-2.5 h-9 max-sm:h-11 rounded-lg px-2.5 text-left text-sm transition duration-120 ease-ob hover:bg-surface-3 focus:bg-surface-3 focus-ring disabled:opacity-50 aria-disabled:opacity-50 '
+    $classes = 'flex w-full items-center gap-2.5 h-9 max-sm:h-11 rounded-item px-2.5 text-left text-sm transition duration-120 ease-ob hover:bg-surface-3 focus:bg-surface-3 focus-ring disabled:opacity-50 aria-disabled:opacity-50 '
         .($variant === 'danger' ? 'text-danger-fg' : 'text-fg');
 
     $rootAttributes = $attributes->merge(['role' => 'menuitem', 'tabindex' => '-1', 'class' => $classes]);

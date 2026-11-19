@@ -1,7 +1,7 @@
 {{-- Collapsible navigation rail; reads and writes `collapsed` from the surrounding <x-ob::app-shell>. --}}
 <aside
     x-bind:class="{ 'w-16!': collapsed }"
-    {{ $attributes->merge(['class' => 'flex h-full w-60 flex-col border-r border-hairline bg-canvas transition-[width] duration-200 ease-ob']) }}
+    {{ $attributes->merge(['class' => 'flex h-full w-60 flex-col border-r border-hairline transition-[width] duration-200 ease-ob']) }}
 >
     {{-- 22px left and top: the brand lines up with the item icons (nav px-2 + item px-3.5) and sits as far from the top as from the side. --}}
     <div x-bind:class="{ 'pl-3!': collapsed }" class="flex shrink-0 items-center gap-2 pt-5.5 pr-3 pb-3 pl-5.5">

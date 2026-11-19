@@ -4,7 +4,7 @@
     $shown = $type === 'select'
         ? (string) (collect($options)->first(fn ($option) => (string) $option['value'] === (string) $value)['label'] ?? '')
         : (string) $value;
-    $fieldClasses = 'h-8 max-sm:h-11 min-w-0 flex-1 rounded-md bg-surface-1 border border-hairline-strong px-2 text-sm text-fg focus-ring';
+    $fieldClasses = 'h-8 max-sm:h-11 min-w-0 flex-1 rounded-item bg-surface-1 border border-hairline-strong px-2 text-sm text-fg focus-ring';
 @endphp
 
 <div
@@ -18,7 +18,7 @@
             x-show="!editing"
             @click="start()"
             aria-label="Edit {{ $label }}"
-            class="-mx-2 inline-flex min-h-8 min-w-0 max-w-full items-center rounded-md px-2 text-left text-sm transition duration-120 ease-ob hover:bg-surface-3 focus-ring max-sm:min-h-11"
+            class="-mx-2 inline-flex min-h-8 min-w-0 max-w-full items-center rounded-item px-2 text-left text-sm transition duration-120 ease-ob hover:bg-surface-3 focus-ring max-sm:min-h-11"
         >
             <span class="truncate" :class="displayText() === '' ? 'text-fg-3' : 'text-fg'" x-text="displayText() || @js($placeholder ?? '')">{{ $shown !== '' ? $shown : $placeholder }}</span>
         </button>

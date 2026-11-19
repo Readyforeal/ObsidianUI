@@ -42,7 +42,7 @@
             data-ob-sheet-panel
             :style="{ transform: dragY ? `translateY(${dragY}px)` : '' }"
             :class="[isInsideLayer ? 'glass-solid' : 'glass', settling ? 'transition-transform duration-200 ease-ob' : '']"
-            class="{{ $transformOrigin }} z-50 min-w-48 rounded-xl p-1 max-sm:!fixed max-sm:!inset-x-0 max-sm:!bottom-0 max-sm:!left-0 max-sm:!top-auto max-sm:rounded-b-none max-sm:rounded-t-[20px] max-sm:px-2 max-sm:pb-[calc(0.5rem+env(safe-area-inset-bottom))]"
+            class="{{ $transformOrigin }} z-50 min-w-48 rounded-panel p-1 max-sm:!fixed max-sm:!inset-x-0 max-sm:!bottom-0 max-sm:!left-0 max-sm:!top-auto max-sm:rounded-b-none max-sm:rounded-t-panel max-sm:px-2 max-sm:pb-[calc(0.5rem+env(safe-area-inset-bottom))]"
         >
             <div
                 x-on:pointerdown="startDrag($event)"

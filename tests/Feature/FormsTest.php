@@ -42,3 +42,8 @@ it('links the label to an x-model-only control', function (string $component) {
 
     expect($label[1] ?? null)->not->toBeEmpty()->toBe($control[1] ?? null);
 })->with(['input', 'select', 'textarea']);
+
+it('shows an optional count beside a segmented option', function () {
+    $this->blade('<x-ob::segmented name="view" :options="[[\'value\' => \'inbox\', \'label\' => \'Inbox\', \'count\' => 12], [\'value\' => \'done\', \'label\' => \'Done\']]" />')
+        ->assertSeeInOrder(['Inbox', '12', 'Done']);
+});

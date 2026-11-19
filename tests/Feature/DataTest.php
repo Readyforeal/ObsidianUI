@@ -118,3 +118,14 @@ it('shows the option label and placeholder in a select inline edit', function ()
     $this->blade("<x-ob::inline-edit action=\"updateAssignee\" name=\"assignee\" type=\"select\" :options=\"{$options}\" label=\"Assignee\" placeholder=\"Unassigned\" />")
         ->assertSee('>Unassigned</span>', false);
 });
+
+it('passes a kanban column colour to its cards through a css variable', function () {
+    $this->blade('<x-ob::kanban.column id="done" title="Done" sort="move" group="tasks" color="success"><x-ob::kanban.card id="1">Card</x-ob::kanban.card></x-ob::kanban.column>')
+        ->assertSee('--ob-column: var(--color-success)', false)
+        ->assertSee('surface-column', false);
+});
+
+it('leaves the column colour unset by default so cards fall back to the accent', function () {
+    $this->blade('<x-ob::kanban.column id="todo" title="To do" sort="move" group="tasks">Body</x-ob::kanban.column>')
+        ->assertDontSee('--ob-column', false);
+});

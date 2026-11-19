@@ -30,7 +30,7 @@ it('entangles live only when wire:model.live is used, on modal and sheet', funct
 it('renders a bottom sheet with a drag handle', function () {
     $this->blade('<x-ob::sheet name="filters" title="Filters">Body</x-ob::sheet>')
         ->assertSee('data-ob-layer="sheet"', false)
-        ->assertSee('rounded-t-[20px]', false)
+        ->assertSee('rounded-t-panel', false)
         ->assertSee('startDrag($event)', false)
         ->assertSee('safe-area-inset-bottom', false);
 });

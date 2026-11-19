@@ -9,7 +9,7 @@
 --}}
 <div
     x-data="{ collapsed: $persist(false).as('ob-sidebar-collapsed') }"
-    {{ $attributes->merge(['class' => 'min-h-dvh bg-canvas text-fg lg:grid lg:grid-cols-[auto_1fr]']) }}
+    {{ $attributes->merge(['class' => 'min-h-dvh text-fg lg:grid lg:grid-cols-[auto_1fr]']) }}
 >
     @isset($sidebar)
         <div class="sticky top-0 z-20 hidden h-dvh lg:block">{{ $sidebar }}</div>

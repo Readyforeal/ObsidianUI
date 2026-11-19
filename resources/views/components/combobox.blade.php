@@ -53,7 +53,7 @@
         <div
             x-ref="control"
             x-on:click="onControlClick($event)"
-            class="flex min-h-9 flex-wrap items-center gap-1 rounded-lg border border-hairline bg-surface-1 px-2 py-1 text-sm in-data-invalid:border-danger focus-within:shadow-[0_0_0_1px_var(--color-accent),0_0_0_5px_var(--color-accent-soft)] max-sm:min-h-11"
+            class="flex min-h-9 flex-wrap items-center gap-1 rounded-field border border-hairline bg-surface-1 px-2 py-1 text-sm in-data-invalid:border-danger focus-within:shadow-[0_0_0_1px_var(--color-accent),0_0_0_5px_var(--color-accent-soft)] max-sm:min-h-11"
         >
             @if ($multiple)
                 <template x-for="option in selectedOptions" :key="option.value">
@@ -120,7 +120,7 @@
                 data-ob-sheet-panel
                 :style="{ transform: dragY ? `translateY(${dragY}px)` : '', minWidth: isDesktop ? panelWidth + 'px' : '' }"
                 :class="[isInsideLayer ? 'glass-solid' : 'glass', settling ? 'transition-transform duration-200 ease-ob' : '']"
-                class="origin-top z-50 rounded-xl p-1 max-sm:!fixed max-sm:!inset-x-0 max-sm:!bottom-0 max-sm:!left-0 max-sm:!top-auto max-sm:rounded-b-none max-sm:rounded-t-[20px] max-sm:px-2 max-sm:pb-[calc(0.5rem+env(safe-area-inset-bottom))]"
+                class="origin-top z-50 rounded-panel p-1 max-sm:!fixed max-sm:!inset-x-0 max-sm:!bottom-0 max-sm:!left-0 max-sm:!top-auto max-sm:rounded-b-none max-sm:rounded-t-panel max-sm:px-2 max-sm:pb-[calc(0.5rem+env(safe-area-inset-bottom))]"
             >
                 <div
                     x-on:pointerdown="startDrag($event)"
@@ -134,7 +134,7 @@
                 <input
                     aria-label="{{ $label ?? 'Search' }}"
                     placeholder="Search…"
-                    {{ $inputAttributes->merge(['class' => 'mb-1 h-11 w-full rounded-lg border border-hairline bg-surface-1 px-3 text-sm text-fg placeholder:text-fg-3 focus-ring sm:hidden']) }}
+                    {{ $inputAttributes->merge(['class' => 'mb-1 h-11 w-full rounded-field border border-hairline bg-surface-1 px-4 text-sm text-fg placeholder:text-fg-3 focus-ring sm:hidden']) }}
                 >
                 <ul
                     x-ref="list"
@@ -152,7 +152,7 @@
                             :data-active="index === active"
                             x-on:click="toggle(option)"
                             x-on:mousemove="active = index"
-                            class="flex min-h-9 cursor-pointer items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-sm text-fg data-[active=true]:bg-surface-3 max-sm:min-h-11"
+                            class="flex min-h-9 cursor-pointer items-center gap-2.5 rounded-item px-2.5 py-1.5 text-sm text-fg data-[active=true]:bg-surface-3 max-sm:min-h-11"
                         >
                             <img x-show="option.avatar" :src="option.avatar" alt="" class="size-6 shrink-0 rounded-full object-cover">
                             <span class="min-w-0 flex-1">

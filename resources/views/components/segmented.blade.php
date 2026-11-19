@@ -38,6 +38,9 @@
                     <x-ob::icon :name="$option['icon']" class="size-4" />
                 @endif
                 {{ $option['label'] }}
+                @isset($option['count'])
+                    <span class="tabular-nums text-fg-3">{{ $option['count'] }}</span>
+                @endisset
             </span>
         </label>
     @endforeach

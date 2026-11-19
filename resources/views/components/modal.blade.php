@@ -52,7 +52,7 @@
             aria-modal="true"
             @if ($title) aria-labelledby="{{ $id }}-title" @elseif ($accessibleName) aria-label="{{ $accessibleName }}" @endif
             @if ($description) aria-describedby="{{ $id }}-description" @endif
-            class="glass relative flex max-h-[90dvh] w-full flex-col rounded-t-[20px] sm:rounded-xl {{ $widthClass }}"
+            class="glass relative flex max-h-[90dvh] w-full flex-col rounded-t-panel sm:rounded-panel {{ $widthClass }}"
         >
             @if ($title || $description)
                 <div class="flex items-start gap-3 px-5 pb-2 pt-5">

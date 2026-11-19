@@ -5,7 +5,7 @@
     type="button"
     aria-pressed="{{ $selected ? 'true' : 'false' }}"
     data-ob-reveal
-    {{ $attributes->merge(['class' => 'flex w-full flex-col items-start gap-1 rounded-xl border p-4 text-left transition duration-120 ease-ob focus-ring '.($selected ? 'border-accent bg-accent-soft' : 'border-hairline bg-surface-1 hover:bg-surface-3')]) }}
+    {{ $attributes->merge(['class' => 'flex w-full flex-col items-start gap-1 rounded-panel border p-4 text-left transition duration-120 ease-ob focus-ring '.($selected ? 'border-accent bg-accent-soft' : 'border-hairline bg-surface-1 hover:bg-surface-3')]) }}
 >
     <span class="flex items-center gap-1.5 text-sm text-fg-2">
         @if ($icon)

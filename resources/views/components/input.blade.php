@@ -18,8 +18,8 @@
     $describedBy = ($hint || $hasError) ? $id.'-desc' : null;
     $hasTrailing = $trailingIcon || ! $slot->isEmpty();
 
-    $controlClasses = 'peer h-9 max-sm:h-11 w-full min-w-0 rounded-lg bg-surface-1 border border-hairline px-3 text-sm text-fg placeholder:text-fg-3 focus-ring in-data-invalid:border-danger disabled:opacity-50'
-        .($icon ? ' pl-9' : '')
+    $controlClasses = 'peer h-9 max-sm:h-11 w-full min-w-0 rounded-field bg-surface-1 border border-hairline px-4 text-sm text-fg placeholder:text-fg-3 focus-ring in-data-invalid:border-danger disabled:opacity-50'
+        .($icon ? ' pl-10' : '')
         .($hasTrailing && $clearable ? ' pr-16 max-sm:pr-20' : ($hasTrailing || $clearable ? ' pr-9 max-sm:pr-11' : ''))
         .($prefix ? ' rounded-l-none' : '')
         .($suffix ? ' rounded-r-none' : '');
@@ -30,11 +30,11 @@
 <x-ob::field :label="$label" :hint="$hint" :error-key="$errorKey" :for="$id" :class="$attributes->get('class')">
     <div class="flex">
         @if ($prefix)
-            <span class="{{ $addonClasses }} rounded-l-lg border-r-0">{{ $prefix }}</span>
+            <span class="{{ $addonClasses }} rounded-l-field border-r-0">{{ $prefix }}</span>
         @endif
         <div class="relative flex-1">
             @if ($icon)
-                <x-ob::icon :name="$icon" class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-fg-3" />
+                <x-ob::icon :name="$icon" class="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-fg-3" />
             @endif
             <input
                 @if ($clearable && ! $attributes->has('placeholder')) placeholder=" " @endif
@@ -60,7 +60,7 @@
             @endif
         </div>
         @if ($suffix)
-            <span class="{{ $addonClasses }} rounded-r-lg border-l-0">{{ $suffix }}</span>
+            <span class="{{ $addonClasses }} rounded-r-field border-l-0">{{ $suffix }}</span>
         @endif
     </div>
 </x-ob::field>

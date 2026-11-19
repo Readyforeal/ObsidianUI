@@ -147,6 +147,10 @@ Each component's props are declared in its `@props` block in `resources/views/co
 
 Conventions shared by all components:
 
+- Corner radii come from three tokens, never ad-hoc values: `rounded-panel` (16px: cards, tables, modals, menus, kanban columns), `rounded-item` (10px: rows and tiles nested inside a panel or rail) and `rounded-field` (inputs, selects, textareas: a pill at one line, a soft rectangle when taller). Buttons, badges and segmented controls are `rounded-full`.
+- Surfaces are flat: a hairline border, no drop shadow. Only floating layers (menus, modals, toasts) cast one.
+- The accent shows up quietly everywhere: hover and selected fills (`surface-3`) carry a trace of it, the current sidebar item uses `accent-soft`, kanban cards take a trace of their column's colour (`<x-ob::kanban.column color="success">`, or set `--ob-column` yourself; the accent otherwise), and the page background fades into a faint accent tint.
+- `segmented` options accept a `count`, for filter tabs such as Inbox 12 / Triaged 4.
 - Icons are [Lucide](https://lucide.dev/icons): `<x-ob::icon name="search" />`. There is one outline style and no `variant`.
 - Detail pages put the way back above the title: `<x-ob::page-header title="…" :back="route('reports.index')" back-label="Reports" />`, or `<x-ob::back-link :href="…">Reports</x-ob::back-link>` when the page builds its own heading.
 - `card`, `stat`, `section`, `table`, `empty-state` and the page header fade in with a short rise (`data-ob-reveal`), staggered between siblings and replayed when scrolled into view. Add the attribute to your own blocks for the same entrance, or `data-ob-fade` for a plain fade. Both are disabled under reduced motion.

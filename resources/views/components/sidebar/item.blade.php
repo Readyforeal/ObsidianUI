@@ -4,8 +4,8 @@
     $path = trim((string) parse_url($href, PHP_URL_PATH), '/');
     $active ??= request()->url() === $href || ($path === '' ? request()->is('/') : request()->is($path, $path.'/*'));
 
-    $classes = 'flex h-9 w-full items-center gap-3 rounded-lg px-3.5 text-sm font-medium transition duration-120 ease-ob focus-ring '
-        .($active ? 'bg-surface-3 text-fg' : 'text-fg-2 hover:bg-surface-3/60 hover:text-fg');
+    $classes = 'flex h-9 w-full items-center gap-3 rounded-item px-3.5 text-sm font-medium transition duration-120 ease-ob focus-ring '
+        .($active ? 'bg-accent-soft text-fg' : 'text-fg-2 hover:bg-surface-3/60 hover:text-fg');
 @endphp
 
 {{-- The label span is multi-line on purpose: the tooltip carries the exact label text node, so a page only has it once. --}}

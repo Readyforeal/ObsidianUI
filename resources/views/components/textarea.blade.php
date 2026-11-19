@@ -17,6 +17,6 @@
         x-init="$nextTick(() => { {{ $grow }} })"
         x-intersect="{{ $grow }}"
         x-on:input="{{ $grow }}"
-        {{ $attributes->except(['class', 'label', 'hint'])->merge(['id' => $id, 'rows' => $rows, 'aria-describedby' => $describedBy, 'aria-invalid' => $hasError ? 'true' : null, 'class' => 'w-full resize-none overflow-hidden rounded-lg bg-surface-1 border border-hairline px-3 py-2 text-sm text-fg placeholder:text-fg-3 focus-ring in-data-invalid:border-danger disabled:opacity-50']) }}
+        {{ $attributes->except(['class', 'label', 'hint'])->merge(['id' => $id, 'rows' => $rows, 'aria-describedby' => $describedBy, 'aria-invalid' => $hasError ? 'true' : null, 'class' => 'w-full resize-none overflow-hidden rounded-field bg-surface-1 border border-hairline px-4 py-2 text-sm text-fg placeholder:text-fg-3 focus-ring in-data-invalid:border-danger disabled:opacity-50']) }}
     >{{ $slot }}</textarea>
 </x-ob::field>

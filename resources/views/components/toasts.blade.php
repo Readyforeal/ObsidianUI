@@ -13,7 +13,7 @@
             x-on:focusin="pause(toast.id)"
             x-on:focusout="resume(toast.id)"
             data-ob-motion
-            class="glass pointer-events-auto flex w-full max-w-sm items-center gap-3 rounded-xl py-2.5 pl-4 pr-2 text-sm text-fg transition duration-200 ease-ob starting:translate-y-2 starting:opacity-0"
+            class="glass pointer-events-auto flex w-full max-w-sm items-center gap-3 rounded-panel py-2.5 pl-4 pr-2 text-sm text-fg transition duration-200 ease-ob starting:translate-y-2 starting:opacity-0"
         >
             <span x-show="toast.variant === 'success'" class="shrink-0 text-success-fg"><x-ob::icon name="circle-check" class="size-5" /></span>
             <span x-show="toast.variant === 'danger'" class="shrink-0 text-danger-fg"><x-ob::icon name="circle-alert" class="size-5" /></span>
@@ -24,7 +24,7 @@
                 x-show="toast.action"
                 :href="toast.action?.href"
                 x-text="toast.action?.label"
-                class="shrink-0 rounded-lg px-2 py-1 font-medium text-accent-fg hover:bg-surface-3 focus-ring max-sm:py-3"
+                class="shrink-0 rounded-item px-2 py-1 font-medium text-accent-fg hover:bg-surface-3 focus-ring max-sm:py-3"
             ></a>
             <button
                 type="button"

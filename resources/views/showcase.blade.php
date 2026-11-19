@@ -51,9 +51,9 @@
     ];
 
     $board = [
-        ['id' => 'todo', 'title' => 'To do', 'cards' => [['id' => 1, 'title' => 'Audit checkout copy for sentence case'], ['id' => 2, 'title' => $longTitle]]],
-        ['id' => 'doing', 'title' => 'In progress', 'cards' => [['id' => 3, 'title' => 'Migrate reports index to Obsidian']]],
-        ['id' => 'done', 'title' => 'Done', 'cards' => []],
+        ['id' => 'todo', 'title' => 'To do', 'color' => 'neutral', 'cards' => [['id' => 1, 'title' => 'Audit checkout copy for sentence case'], ['id' => 2, 'title' => $longTitle]]],
+        ['id' => 'doing', 'title' => 'In progress', 'color' => 'accent', 'cards' => [['id' => 3, 'title' => 'Migrate reports index to Obsidian']]],
+        ['id' => 'done', 'title' => 'Done', 'color' => 'success', 'cards' => []],
     ];
 
     $paletteActions = [
@@ -338,7 +338,7 @@
 
             <x-ob::kanban>
                 @foreach ($board as $column)
-                    <x-ob::kanban.column :id="$column['id']" :title="$column['title']" :count="count($column['cards'])" sort="moveTask" group="tasks">
+                    <x-ob::kanban.column :id="$column['id']" :title="$column['title']" :count="count($column['cards'])" :color="$column['color']" sort="moveTask" group="tasks">
                         @foreach ($column['cards'] as $card)
                             <x-ob::kanban.card :id="$card['id']" :label="'Move '.$card['title']">
                                 <p class="text-sm text-fg">{{ $card['title'] }}</p>

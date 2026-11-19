@@ -19,6 +19,6 @@
         x-transition.opacity.duration.120ms
         role="tooltip"
         data-ob-motion
-        class="glass z-50 pointer-events-none whitespace-nowrap rounded-lg px-2 py-1 text-xs text-fg"
+        class="glass z-50 pointer-events-none whitespace-nowrap rounded-item px-2 py-1 text-xs text-fg"
     >{{ $text }}</span>
 </span>

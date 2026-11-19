@@ -7,7 +7,7 @@
     $icons = $iconNames->mapWithKeys(fn (string $name): array => [
         $name => Blade::render('<x-ob::icon :name="$name" class="size-4 shrink-0 text-fg-3" />', ['name' => $name]),
     ]);
-    $rowClasses = 'flex min-h-9 w-full items-center gap-2.5 rounded-lg px-2.5 text-left text-sm text-fg aria-selected:bg-surface-3 max-sm:min-h-11';
+    $rowClasses = 'flex min-h-9 w-full items-center gap-2.5 rounded-item px-2.5 text-left text-sm text-fg aria-selected:bg-surface-3 max-sm:min-h-11';
 @endphp
 
 <div
@@ -50,7 +50,7 @@
             role="dialog"
             aria-modal="true"
             aria-label="Command palette"
-            class="glass relative flex w-full flex-col max-sm:pt-[env(safe-area-inset-top)] sm:max-h-[70vh] sm:max-w-xl sm:rounded-xl"
+            class="glass relative flex w-full flex-col max-sm:pt-[env(safe-area-inset-top)] sm:max-h-[70vh] sm:max-w-xl sm:rounded-panel"
         >
             <div class="flex items-center gap-2 border-b border-hairline px-3">
                 <x-ob::icon name="search" class="size-4 shrink-0 text-fg-3" />

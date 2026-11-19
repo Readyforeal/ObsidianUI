@@ -1,7 +1,12 @@
 @blaze
-@props(['id', 'title', 'count' => null, 'sort', 'group'])
+@props(['id', 'title', 'count' => null, 'sort', 'group', 'color' => null])
 
-<section {{ $attributes->merge(['class' => 'w-[85vw] sm:w-80 shrink-0 snap-start rounded-xl bg-surface-1/60 border border-hairline']) }} aria-labelledby="ob-kanban-{{ $id }}">
+@php
+    // accent | danger | warning | success | info | neutral: tints this column's cards.
+    $columnColor = $color ? '--ob-column: var(--color-'.$color.')' : null;
+@endphp
+
+<section {{ $attributes->merge(['class' => 'w-[85vw] sm:w-80 shrink-0 snap-start rounded-panel bg-surface-1/60 border border-hairline', 'style' => $columnColor]) }} aria-labelledby="ob-kanban-{{ $id }}">
     <header class="flex items-center justify-between gap-2 px-3 pt-3 pb-1">
         <h3 id="ob-kanban-{{ $id }}" class="min-w-0 truncate text-sm font-medium text-fg">{{ $title }}</h3>
         @if ($count !== null)
